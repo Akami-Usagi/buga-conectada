@@ -62,7 +62,7 @@ export default function MapaZonasWifi() {
     <MapContainer
       center={[3.9019, -76.2975]}
       zoom={14}
-      style={{ height: "100vh", width: "100%" }}
+      style={{ height: "50vh", width: "50%" }}
       scrollWheelZoom={true}
     >
       <TileLayer
