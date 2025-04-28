@@ -11,22 +11,39 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png",
 });
 
-// Ícono personalizado para el usuario
+// Ícono personalizados
 const userIcon = new L.Icon({
   iconUrl: "icons/usericon.svg",
   iconSize: [30, 30],
   iconAnchor: [15, 30],
 });
 
+const iconActivo = L.icon({
+  iconUrl: "/icons/wifiicon.svg",  // o .png
+  shadowUrl: "icons/wifishadow.png",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
+
+const iconInactivo = L.icon({
+  iconUrl: "/icons/wifidisabled.svg",
+  shadowUrl: "icons/wifishadow.png",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
+
+
 // Datos de los puntos WiFi
 const zonasWifi = [
-  { nombre: "Parque de los Ángeles", coords: [3.8929356916390847, -76.30507734159134] },
-  { nombre: "Parque de la Merced", coords: [3.8966599616833983, -76.30674613387694] },
-  { nombre: "Parque de Paloblanco", coords: [3.912194210111981, -76.30736897985805] },
-  { nombre: "Parque Fuenmayor (No funcional)", coords: [3.907393962268074, -76.29319545524012] },
-  { nombre: "Parque Santa Bárbara", coords: [3.903855251060354, -76.29525600278023] },
-  { nombre: "Parque de la Revolución", coords: [3.900058404805033, -76.29029339566847] },
-  { nombre: "Parque Alto Bonito", coords: [3.8995856169563123, -76.28627800136128] },
+  { nombre: "Parque de los Ángeles", coords: [3.8929356916390847, -76.30507734159134], enabled: true },
+  { nombre: "Parque de la Merced", coords: [3.8966599616833983, -76.30674613387694], enabled: true  },
+  { nombre: "Parque de Paloblanco", coords: [3.912194210111981, -76.30736897985805], enabled: true  },
+  { nombre: "Parque Fuenmayor (No funcional)", coords: [3.907393962268074, -76.29319545524012], enabled: false },
+  { nombre: "Parque Santa Bárbara", coords: [3.903855251060354, -76.29525600278023], enabled: true  },
+  { nombre: "Parque de la Revolución", coords: [3.900058404805033, -76.29029339566847], enabled: true  },
+  { nombre: "Parque Alto Bonito", coords: [3.8995856169563123, -76.28627800136128], enabled: true  },
 ];
 
 function UserLocationMarker() {
@@ -71,7 +88,7 @@ export default function MapaZonasWifi() {
 
       {/* Marcadores de las zonas WiFi */}
       {zonasWifi.map((zona, idx) => (
-        <Marker key={idx} position={zona.coords}>
+        <Marker key={idx} position={zona.coords} icon={zona.enabled ? iconActivo : iconInactivo}>
           <Popup>{zona.nombre}</Popup>
         </Marker>
       ))}
