@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { useEffect, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import ZonaCard from "./ZonaCard";
 
 // Solución para íconos rotos en Leaflet en React
 delete L.Icon.Default.prototype._getIconUrl;
@@ -37,13 +38,13 @@ const iconInactivo = L.icon({
 
 // Datos de los puntos WiFi
 const zonasWifi = [
-  { nombre: "Parque de los Ángeles", coords: [3.8929356916390847, -76.30507734159134], enabled: true },
-  { nombre: "Parque de la Merced", coords: [3.8966599616833983, -76.30674613387694], enabled: true  },
-  { nombre: "Parque de Paloblanco", coords: [3.912194210111981, -76.30736897985805], enabled: true  },
-  { nombre: "Parque Fuenmayor (No funcional)", coords: [3.907393962268074, -76.29319545524012], enabled: false },
-  { nombre: "Parque Santa Bárbara", coords: [3.903855251060354, -76.29525600278023], enabled: true  },
-  { nombre: "Parque de la Revolución", coords: [3.900058404805033, -76.29029339566847], enabled: true  },
-  { nombre: "Parque Alto Bonito", coords: [3.8995856169563123, -76.28627800136128], enabled: true  },
+  { nombre: "Parque de los Ángeles", coords: [3.8929356916390847, -76.30507734159134], enabled: true, image: "images/angeles.webp" },
+  { nombre: "Parque de la Merced", coords: [3.8966599616833983, -76.30674613387694], enabled: true, image: "images/merced.webp"  },
+  { nombre: "Parque de Paloblanco", coords: [3.912194210111981, -76.30736897985805], enabled: true, image: "images/palo_blanco.webp"  },
+  { nombre: "Parque Fuenmayor", coords: [3.907393962268074, -76.29319545524012], enabled: false, image: "images/fuenmayor.webp" },
+  { nombre: "Parque Santa Bárbara", coords: [3.903855251060354, -76.29525600278023], enabled: true, image: "images/santa_barbara.webp"  },
+  { nombre: "Parque de la Revolución", coords: [3.900058404805033, -76.29029339566847], enabled: true, image: "images/revolucion.webp"  },
+  { nombre: "Parque Alto Bonito", coords: [3.8995856169563123, -76.28627800136128], enabled: true, image: "images/alto_bonito.webp"  },
 ];
 
 function UserLocationMarker() {
@@ -89,7 +90,7 @@ export default function MapaZonasWifi() {
       {/* Marcadores de las zonas WiFi */}
       {zonasWifi.map((zona, idx) => (
         <Marker key={idx} position={zona.coords} icon={zona.enabled ? iconActivo : iconInactivo}>
-          <Popup>{zona.nombre}</Popup>
+          <Popup><ZonaCard zona={zona}/></Popup>
         </Marker>
       ))}
 
