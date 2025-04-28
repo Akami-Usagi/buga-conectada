@@ -13,23 +13,23 @@ L.Icon.Default.mergeOptions({
 
 // Ícono personalizado para el usuario
 const userIcon = new L.Icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/61/61168.png",
+  iconUrl: "icons/usericon.svg",
   iconSize: [30, 30],
   iconAnchor: [15, 30],
 });
 
 // Datos de los puntos WiFi
 const zonasWifi = [
-  { nombre: "Parque de los Ángeles", coords: [3.900751, -76.295122] },
-  { nombre: "Parque de la Merced (No funcional)", coords: [3.899210, -76.298841] },
-  { nombre: "Parque de Paloblanco", coords: [3.902879, -76.309345] },
-  { nombre: "Parque Fuenmayor (No funcional)", coords: [3.902120, -76.294915] },
-  { nombre: "Parque Santa Bárbara", coords: [3.901150, -76.296730] },
-  { nombre: "Parque de la Revolución", coords: [3.901990, -76.301640] },
-  { nombre: "Parque Alto Bonito (No funcional)", coords: [3.905800, -76.311540] },
+  { nombre: "Parque de los Ángeles", coords: [3.8929356916390847, -76.30507734159134] },
+  { nombre: "Parque de la Merced", coords: [3.8966599616833983, -76.30674613387694] },
+  { nombre: "Parque de Paloblanco", coords: [3.912194210111981, -76.30736897985805] },
+  { nombre: "Parque Fuenmayor (No funcional)", coords: [3.907393962268074, -76.29319545524012] },
+  { nombre: "Parque Santa Bárbara", coords: [3.903855251060354, -76.29525600278023] },
+  { nombre: "Parque de la Revolución", coords: [3.900058404805033, -76.29029339566847] },
+  { nombre: "Parque Alto Bonito", coords: [3.8995856169563123, -76.28627800136128] },
 ];
 
-function UserLocationMarker({ setUserPosition }) {
+function UserLocationMarker() {
   const [position, setPosition] = useState(null);
   const map = useMap();
 
@@ -38,15 +38,14 @@ function UserLocationMarker({ setUserPosition }) {
       (pos) => {
         const coords = [pos.coords.latitude, pos.coords.longitude];
         setPosition(coords);
-        setUserPosition(coords);
-        map.setView(coords, 15);
+        map.setView(coords, 14);
       },
       (err) => {
         console.error("Ubicación no disponible:", err);
         alert("No se pudo obtener tu ubicación.");
       }
     );
-  }, [map, setUserPosition]);
+  }, [map]);
 
   return position ? (
     <Marker position={position} icon={userIcon}>
@@ -56,17 +55,17 @@ function UserLocationMarker({ setUserPosition }) {
 }
 
 export default function MapaZonasWifi() {
-  const [userPosition, setUserPosition] = useState(null);
+ 
 
   return (
     <MapContainer
       center={[3.9019, -76.2975]}
       zoom={14}
-      style={{ height: "50vh", width: "50%" }}
+      style={{ height: "100vh", width: "100%" }}
       scrollWheelZoom={true}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+        attribution='&copy; <a href="https://www.secretariaticbuga.online/">Secretaría TIC</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
@@ -78,7 +77,7 @@ export default function MapaZonasWifi() {
       ))}
 
       {/* Ubicación del usuario */}
-      <UserLocationMarker setUserPosition={setUserPosition} />
+      <UserLocationMarker/>
     </MapContainer>
   );
 }
