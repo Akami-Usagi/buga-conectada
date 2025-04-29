@@ -1,12 +1,17 @@
 import React from "react";
+import Main from "./Pages/Main";
 import MapaZonasWifi from "./Components/MapaZonasWifi";
-import ZonaCard from "./Components/ZonaCard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <MapaZonasWifi />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main/>} />
+        <Route path="zonas_wifi" element={<MapaZonasWifi/>}/>
+      </Routes>
+    </Router>
+      
   );
 }
 
