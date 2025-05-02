@@ -34,6 +34,13 @@ const iconInactivo = L.icon({
   iconAnchor: [16, 32],
   popupAnchor: [0, -32],
 });
+const iconCentro = L.icon({
+  iconUrl: "/icons/centro.svg",
+  shadowUrl: "icons/shadowcentro.png",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
 
 
 // Datos de los puntos WiFi
@@ -45,6 +52,11 @@ const zonasWifi = [
   { nombre: "Parque Santa Bárbara", coords: [3.903855251060354, -76.29525600278023], enabled: true, image: "images/santa_barbara.webp"  },
   { nombre: "Parque de la Revolución", coords: [3.900058404805033, -76.29029339566847], enabled: true, image: "images/revolucion.webp"  },
   { nombre: "Parque Alto Bonito", coords: [3.8995856169563123, -76.28627800136128], enabled: true, image: "images/alto_bonito.webp"  },
+];
+const centrosTransformacion = [
+  {nombre: "CTD Colegio ITA", coords: [3.9117234951243054, -76.2918113379526]},
+  {nombre: "CTD Colegio Academido", coords: [3.8918508993832703, -76.29820865911823]},
+  {nombre: "CTD Biblioteca Carlos H. Morales", coords: [3.9083289860340766, -76.29871818416554]},
 ];
 
 function UserLocationMarker() {
@@ -91,6 +103,12 @@ export default function MapaZonasWifi() {
       {zonasWifi.map((zona, idx) => (
         <Marker key={idx} position={zona.coords} icon={zona.enabled ? iconActivo : iconInactivo}>
           <Popup><ZonaCard zona={zona}/></Popup>
+        </Marker>
+      ))}
+      {/* Marcadores de los Centros de Transformacion */}
+      {centrosTransformacion.map((centro, idx) => (
+        <Marker key={idx} position={centro.coords} icon={iconCentro}>
+          <Popup><ZonaCard zona={centro}/></Popup>
         </Marker>
       ))}
 
