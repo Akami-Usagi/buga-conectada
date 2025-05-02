@@ -14,8 +14,24 @@ const Logo = styled(motion.img)`
     width: 350px;
 `
 const MainDiv = styled.div`
-    width: 100%;
-    height: auto;
+    max-width: 100vw;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+`
+const MainImage = styled(motion.img)`
+    height: calc(100vh - 60px);
+    position: absolute;
+    right: 0;
+`
+const MainText = styled(motion.h1)`
+    position: relative;
+    right: 150px;
+    font-size: 50px;
+    color: white;
+    text-shadow: 0 0 10px black;
 `
 
 export default function Main ({setHeaderVisible}){
@@ -47,9 +63,21 @@ export default function Main ({setHeaderVisible}){
 
     const MainContent = () => {
         return(
-            <div>
-                <h1>hola mundo</h1>
-            </div>
+            <MainDiv>
+                <MainImage 
+                initial={{ translateX: 600, opacity: 0}}
+                animate={{ translateX: 0, opacity: 1}}
+                transition={{duration: 1.5}}
+                src="images/image_1.png"/>
+                <MainText 
+                initial={{ translateY: 200, opacity: 0}}
+                animate={{ translateY: 0, opacity: 1}}
+                transition={{delay: 0.5, duration: 1.5}}>
+                    Ubica, conéctate, navega: <br/>
+                    Encuentra tu zona WiFi más cercana
+                </MainText>
+
+            </MainDiv>
         )
     };
 
