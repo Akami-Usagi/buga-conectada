@@ -17,6 +17,9 @@ const HeaderIcon = styled.img`
 const ButtonsDiv = styled.div`
     display: flex;
     gap: 20px;
+    @media(max-width: 500px){
+        display: none;
+    }
 `
 const LinkButton = styled(Link)`
     background-color: white;

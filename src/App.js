@@ -6,12 +6,14 @@ import Shader from "./Components/Shader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 
+
 function App() {
 
   const [headerVisible, setHeaderVisible] = useState(false)
 
   return (
     <Router>
+      <Shader/>
       {headerVisible ? <Header/> : null}
       <Routes>
         <Route path="/" element={<Main setHeaderVisible={setHeaderVisible}/>} />

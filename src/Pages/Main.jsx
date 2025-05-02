@@ -1,5 +1,4 @@
 import React from "react";
-import Shader from "../Components/Shader";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
@@ -12,6 +11,9 @@ const Logo = styled(motion.img)`
     right: 0;
     margin: auto;
     width: 350px;
+    @media(max-width: 500px){
+        width: 300px;
+    }
 `
 const MainDiv = styled.div`
     max-width: 100vw;
@@ -25,6 +27,9 @@ const MainImage = styled(motion.img)`
     height: calc(100vh - 60px);
     position: absolute;
     right: 0;
+    @media(max-width: 500px){
+        right: -220px;
+    }
 `
 const MainText = styled(motion.h1)`
     position: relative;
@@ -32,6 +37,12 @@ const MainText = styled(motion.h1)`
     font-size: 50px;
     color: white;
     text-shadow: 0 0 10px black;
+    @media (max-width: 500px){
+        right: -30px;
+        top: 150px;
+        font-size: 30px;
+
+    }
 `
 
 export default function Main ({setHeaderVisible}){
@@ -43,7 +54,7 @@ export default function Main ({setHeaderVisible}){
         const timer = setTimeout(() => {
           setMainIntro(false); // Aquí cambias a otro componente
           setHeaderVisible(true);
-        }, 4000); // Espera 3 segundos
+        }, 3000); // Espera 3 segundos
     
         return () => clearTimeout(timer);
       }, [mainIntro, setHeaderVisible]);
@@ -54,7 +65,7 @@ export default function Main ({setHeaderVisible}){
             <Logo
             initial={{ scale: 0, opacity: 0}}
             animate={{ scale: 1, opacity: 1}}
-            transition={{duration: 1.5}}
+            transition={{duration: 1}}
             exit={{translateY: -100, opacity: 0 }}
             
             src="images/buga_conectada_logo.svg" alt="Buga Conectada" />
@@ -83,7 +94,6 @@ export default function Main ({setHeaderVisible}){
 
     return(
         <div>
-            <Shader/>
             <AnimatePresence mode="wait">
                 {mainIntro ? <SplashScreen key={"splash"}/> : <MainContent key={"content"}/>}
             </AnimatePresence>
