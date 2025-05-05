@@ -3,14 +3,8 @@ import { useEffect, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import ZonaCard from "./ZonaCard";
-
-// Solución para íconos rotos en Leaflet en React
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon-2x.png",
-  iconUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png",
-});
+import styled from "styled-components";
+import { motion } from "motion/react";
 
 // Ícono personalizados
 const userIcon = new L.Icon({
@@ -59,6 +53,21 @@ const centrosTransformacion = [
   {nombre: "CTD Biblioteca Carlos H. Morales", coords: [3.9083289860340766, -76.29871818416554]},
 ];
 
+const WifiMainDiv = styled(motion.div)`
+  width: 100%;
+  max-height: calc(100vh - 60px);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+`
+const StyledMapContainer = styled(MapContainer)`
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+  margin-top: 50px;
+  
+`
+
 function UserLocationMarker() {
   const [position, setPosition] = useState(null);
   const map = useMap();
@@ -77,6 +86,8 @@ function UserLocationMarker() {
     );
   }, [map]);
 
+  
+
   return position ? (
     <Marker position={position} icon={userIcon}>
       <Popup>¡Estás aquí!</Popup>
@@ -84,37 +95,46 @@ function UserLocationMarker() {
   ) : null;
 }
 
-export default function MapaZonasWifi() {
- 
+export default function MapaZonasWifi({setHeaderVisible}) {
+
+  useEffect(() => {
+    setHeaderVisible(true)
+  },[setHeaderVisible])
 
   return (
-    <MapContainer
-      center={[3.9019, -76.2975]}
-      zoom={14}
-      style={{ height: "100vh", width: "100%" }}
-      scrollWheelZoom={true}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.secretariaticbuga.online/">Secretaría TIC</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <WifiMainDiv
+            initial={{translateY: 160, opacity: 0}}
+            animate={{translateY: 0, opacity: 1 }}
+            transition={{duration: 1.5}}>
+        <StyledMapContainer
+        center={[3.9019, -76.2975]}
+        zoom={14}
+        style={{ height: "80vh", width: "80%",}}
+        scrollWheelZoom={true}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.secretariaticbuga.online/">Secretaría TIC</a>'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      {/* Marcadores de las zonas WiFi */}
-      {zonasWifi.map((zona, idx) => (
-        <Marker key={idx} position={zona.coords} icon={zona.enabled ? iconActivo : iconInactivo}>
-          <Popup><ZonaCard zona={zona}/></Popup>
-        </Marker>
-      ))}
-      {/* Marcadores de los Centros de Transformacion */}
-      {centrosTransformacion.map((centro, idx) => (
-        <Marker key={idx} position={centro.coords} icon={iconCentro}>
-          <Popup><ZonaCard zona={centro}/></Popup>
-        </Marker>
-      ))}
+        {/* Marcadores de las zonas WiFi */}
+        {zonasWifi.map((zona, idx) => (
+          <Marker key={idx} position={zona.coords} icon={zona.enabled ? iconActivo : iconInactivo}>
+            <Popup><ZonaCard zona={zona}/></Popup>
+          </Marker>
+        ))}
+        {/* Marcadores de los Centros de Transformacion */}
+        {centrosTransformacion.map((centro, idx) => (
+          <Marker key={idx} position={centro.coords} icon={iconCentro}>
+            <Popup><ZonaCard zona={centro}/></Popup>
+          </Marker>
+        ))}
 
-      {/* Ubicación del usuario */}
-      <UserLocationMarker/>
-    </MapContainer>
+        {/* Ubicación del usuario */}
+        <UserLocationMarker/>
+      </StyledMapContainer>
+    </WifiMainDiv>
+    
   );
 }
 

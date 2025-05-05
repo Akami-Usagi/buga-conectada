@@ -37,11 +37,11 @@ export default function Header(){
             animate={{translateY: 0}}
             transition={{delay: 1, duration: 1}}>
 
-                <HeaderIcon src="images/buga_conectada_logo.svg" alt="Buga Conectada"/>
+                <Link to={"/"}><HeaderIcon src="images/buga_conectada_logo.svg" alt="Buga Conectada"/></Link>
                 <ButtonsDiv>
                     <LinkButton >Parques Conectados</LinkButton>
                     <LinkButton >Centros de Transformacion</LinkButton>
-                    <LinkButton >Mapa de Conectividad</LinkButton>
+                    <LinkButton to={"/zonas_wifi"}>Mapa de Conectividad</LinkButton>
                 </ButtonsDiv>
 
         </HeaderDiv>

@@ -17,7 +17,7 @@ function App() {
       {headerVisible ? <Header/> : null}
       <Routes>
         <Route path="/" element={<Main setHeaderVisible={setHeaderVisible}/>} />
-        <Route path="/zonas_wifi" element={<MapaZonasWifi/>}/>
+        <Route path="/zonas_wifi" element={<MapaZonasWifi setHeaderVisible={setHeaderVisible}/> }/>
         <Route path="/shader" element={<Shader/>}/>
       </Routes>
     </Router>

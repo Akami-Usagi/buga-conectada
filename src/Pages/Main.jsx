@@ -13,6 +13,7 @@ const Logo = styled(motion.img)`
     width: 350px;
     @media(max-width: 500px){
         width: 300px;
+        
     }
 `
 const MainDiv = styled.div`
@@ -54,7 +55,7 @@ export default function Main ({setHeaderVisible}){
         const timer = setTimeout(() => {
           setMainIntro(false); // Aquí cambias a otro componente
           setHeaderVisible(true);
-        }, 3000); // Espera 3 segundos
+        }, 1500); // Espera 3 segundos
     
         return () => clearTimeout(timer);
       }, [mainIntro, setHeaderVisible]);
