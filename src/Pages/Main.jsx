@@ -53,9 +53,9 @@ export default function Main ({setHeaderVisible}){
 
     useEffect(() => {
         const timer = setTimeout(() => {
-          setMainIntro(false); // Aquí cambias a otro componente
+          setMainIntro(false); 
           setHeaderVisible(true);
-        }, 1500); // Espera 3 segundos
+        }, 1500);
     
         return () => clearTimeout(timer);
       }, [mainIntro, setHeaderVisible]);
@@ -80,15 +80,16 @@ export default function Main ({setHeaderVisible}){
                 initial={{ translateX: 600, opacity: 0}}
                 animate={{ translateX: 0, opacity: 1}}
                 transition={{duration: 1.5}}
+                exit={{translateY: -100, opacity: 0 }}
                 src="images/image_1.png"/>
                 <MainText 
                 initial={{ translateY: 200, opacity: 0}}
                 animate={{ translateY: 0, opacity: 1}}
-                transition={{delay: 0.5, duration: 1.5}}>
+                transition={{delay: 0.5, duration: 1.5}}
+                exit={{translateY: -100, opacity: 0 }}>
                     Ubica, conéctate, navega: <br/>
                     Encuentra tu zona WiFi más cercana
                 </MainText>
-
             </MainDiv>
         )
     };

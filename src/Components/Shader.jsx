@@ -5,7 +5,7 @@ export default function Shader () {
   return (
     <ShaderGradientCanvas
       style={{
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         pointerEvents: "none",
         zIndex: -1
