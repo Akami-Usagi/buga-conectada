@@ -23,7 +23,7 @@ const CardContent = styled.h2`
     position: absolute;
     font-weight: bold;
     text-align: center;
-    text-shadow: 4px 4px 4px rgba(0,0,0,1);
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 `;
 const ImageContainer = styled.div`
     width: 100%;

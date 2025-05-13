@@ -49,9 +49,9 @@ const zonasWifi = [
   { nombre: "Parque Maria Luisa", coords: [3.91258405635995, -76.29595931546105], enabled: false, image: "images/maria_luisa.webp"  }
 ];
 const centrosTransformacion = [
-  {nombre: "CTD Colegio ITA", coords: [3.9117234951243054, -76.2918113379526]},
-  {nombre: "CTD Colegio Academido", coords: [3.8918508993832703, -76.29820865911823]},
-  {nombre: "CTD Biblioteca Carlos H. Morales", coords: [3.9083289860340766, -76.29871818416554]},
+  {nombre: "CTD Colegio ITA", coords: [3.9117234951243054, -76.2918113379526], enabled: true, image: "images/ita.webp"},
+  {nombre: "CTD Colegio Academido", coords: [3.8918508993832703, -76.29820865911823], enabled: true, image: "images/academico.webp"},
+  {nombre: "CTD Biblioteca Carlos H. Morales", coords: [3.9083289860340766, -76.29871818416554], enabled: true, image: "images/biblioteca.webp"},
 ];
 
 const WifiMainDiv = styled(motion.div)`
