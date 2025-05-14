@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Buga Conectada - Mapa de Zonas WiFi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**URL del sitio:** [https://buga-conectada.vercel.app](https://buga-conectada.vercel.app)  
+**Responsable técnico:** Camilo Arango Escobar
 
-## Available Scripts
+Este sitio web ofrece una visualización interactiva de los puntos WiFi gratuitos distribuidos en el municipio de Guadalajara de Buga. Está diseñado para ser accesible, liviano y de fácil uso por parte de la ciudadanía, fomentando el acceso a la información y la conectividad.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🗺️ Tecnologías utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React.js** – Biblioteca para construcción del frontend
+- **Leaflet.js** – Biblioteca de mapas interactivos
+- **React-Leaflet** – Wrapper para utilizar Leaflet en aplicaciones React
+- **Framer Motion** – Animaciones sutiles en la UI
+- **Styled Components** – Estilos con CSS-in-JS
+- **Vercel** – Hosting y despliegue automático del sitio
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📁 Estructura del proyecto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+/public               → Archivos estáticos (favicon, imágenes)
+/src
+  /components         → Componentes reutilizables (Mapa, Navbar, Footer)
+/data                 → Datos georreferenciados de los puntos WiFi (GeoJSON o JS)
+/pages                → Páginas principales (Inicio, Mapa, Contacto)
+/styles               → Temas y estilos globales con Styled Components
+  App.jsx             → Componente raíz
+  main.jsx            → Punto de entrada
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🌐 Despliegue
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+El sitio está desplegado en [Vercel](https://vercel.com/).  
+Para hacer un nuevo despliegue:
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🧩 Funcionalidades
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Visualización en tiempo real de zonas WiFi públicas en Buga
+- Mapa interactivo con zoom, arrastre y popups informativos
+- Animaciones suaves y responsivas (Framer Motion)
+- Diseño responsive y ligero
+- Posibilidad de expansión para agregar filtros y capas futuras
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 👥 Créditos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Desarrollado por:** Camilo Arango Escobar  
+**Entidad:** Secretaría TIC - Alcaldía de Guadalajara de Buga  
+**Colaboradores:** Área de infraestructura, equipo de campo, programadores TIC
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📬 Contacto
 
-### Analyzing the Bundle Size
+- Web: [https://buga-conectada.vercel.app](https://buga-conectada.vercel.app)  
+- Correo: akami.3ds@gmail.com 
+- GitHub: https://github.com/Akami-Usagi 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📝 Licencia
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este proyecto es de carácter público, educativo y comunitario. Se permite su uso y adaptación con fines similares, siempre y cuando se mencione su origen y propósito social.
