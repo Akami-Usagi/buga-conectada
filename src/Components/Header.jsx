@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 const HeaderDiv = styled(motion.div)`
     width: 100%;
-    height: 60px;
+    min-height: 60px;
+    max-height: fit-content;
     background-color: #3A3A73;
     display: flex;
     align-items: center;
