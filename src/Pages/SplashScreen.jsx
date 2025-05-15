@@ -1,4 +1,3 @@
-import react from "react";
 import styled from "styled-components";
 import { motion } from "motion/react";
 import { useEffect } from "react";
