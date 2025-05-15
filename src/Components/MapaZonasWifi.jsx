@@ -65,8 +65,12 @@ const WifiMainDiv = styled(motion.div)`
 const StyledMapContainer = styled(MapContainer)`
   border-radius: 20px;
   box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
-  margin-top: 50px;
   
+`
+const WifiText = styled.h1`
+  color: white;
+  text-align: center;
+  width: 90%;
 `
 
 function UserLocationMarker() {
@@ -105,12 +109,14 @@ export default function MapaZonasWifi({setHeaderVisible}) {
   return (
     <WifiMainDiv
             initial={{translateY: 160, opacity: 0}}
-            animate={{translateY: 0, opacity: 1, transition: {duration: 1.5} }}
-            exit={{scale: 0, opacity: 0, transition: {duration: 0.7}}}>
+            animate={{translateY: 0, opacity: 1}}
+            transition={{delay: 1, duration: 1.5}}
+            exit={{scale: 0, opacity: 0, transition: {duration: 1.5}}}>
+        <WifiText>Encuentra tu zona WiFi mas cercana</WifiText>      
         <StyledMapContainer
         center={[3.9019, -76.2975]}
         zoom={14}
-        style={{ height: "80vh", width: "80%",}}
+        style={{ height: "85vh", width: "95%",}}
         scrollWheelZoom={true}
       >
         <TileLayer

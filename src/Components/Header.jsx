@@ -16,6 +16,7 @@ const HeaderIcon = styled.img`
 `
 const ButtonsDiv = styled.div`
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     @media(max-width: 500px){
         display: none;
@@ -37,7 +38,7 @@ export default function Header(){
             animate={{translateY: 0}}
             transition={{delay: 1, duration: 1}}>
 
-                <Link to={"/"}><HeaderIcon src="images/buga_conectada_logo.svg" alt="Buga Conectada"/></Link>
+                <Link to={"/inicio"}><HeaderIcon src="images/buga_conectada_logo.svg" alt="Buga Conectada"/></Link>
                 <ButtonsDiv>
                     <LinkButton to={"/parques_conectados"}>Parques Conectados</LinkButton>
                     <LinkButton >Centros de Transformacion</LinkButton>

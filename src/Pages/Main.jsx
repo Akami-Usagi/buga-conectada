@@ -1,21 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { motion } from "motion/react";
+import { useEffect } from "react";
 
-const Logo = styled(motion.img)`
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 350px;
-    @media(max-width: 500px){
-        width: 300px;
-        
-    }
-`
 const MainDiv = styled(motion.div)`
     max-width: 100vw;
     min-height: calc(100vh - 60px);
@@ -34,14 +21,15 @@ const MainImage = styled(motion.img)`
 `
 const MainText = styled(motion.h1)`
     position: relative;
-    right: 150px;
+    width: 800px;
+    padding: 30px;
     font-size: 50px;
     color: white;
     text-shadow: 0 0 10px black;
-    @media (max-width: 500px){
-        right: -30px;
+    @media (max-width: 830px){
+        width: 90%;
         top: 150px;
-        font-size: 30px;
+        font-size: 35px;
 
     }
 `
@@ -49,61 +37,30 @@ const MainText = styled(motion.h1)`
 export default function Main ({setHeaderVisible}){
 
 
-    const [mainIntro, setMainIntro] = useState(true);
+    
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-          setMainIntro(false); 
-          setHeaderVisible(true);
-        }, 1500);
-    
-        return () => clearTimeout(timer);
-      }, [mainIntro, setHeaderVisible]);
+        setHeaderVisible(true)
+      }, [setHeaderVisible]);
 
 
-    const SplashScreen = () => {
-        return(
-            <Logo
-            key={"logo"}
-            initial={{ scale: 0, opacity: 0}}
-            animate={{ scale: 1, opacity: 1}}
-            transition={{duration: 1}}
-            exit={{translateY: -100, opacity: 0 }}
-            
-            src="images/buga_conectada_logo.svg" alt="Buga Conectada" />
-        )
-    };
-
-    const MainContent = () => {
-        return(
-            <MainDiv
-                key={"content"}
-                initial={{translateY: 160, opacity: 0}}
-                animate={{translateY: 0, opacity: 1, transition: {duration: 1.5} }}
-                exit={{scale: 0, opacity: 0, transition: {duration: 0.7}}}>
-                <MainImage 
-                initial={{ translateX: 600, opacity: 0}}
-                animate={{ translateX: 0, opacity: 1}}
-                transition={{duration: 1.5}}
-                exit={{translateY: -100, opacity: 0 }}
-                src="images/image_1.png"/>
-                <MainText 
-                initial={{ translateY: 200, opacity: 0}}
-                animate={{ translateY: 0, opacity: 1}}
-                transition={{delay: 0.5, duration: 1.5}}
-                exit={{translateY: -100, opacity: 0 }}>
-                    Ubica, conéctate, navega: <br/>
-                    Encuentra tu zona WiFi más cercana
-                </MainText>
-            </MainDiv>
-        )
-    };
 
     return(
-        <div>
-            <AnimatePresence mode="wait">
-                {mainIntro ? <SplashScreen key={"splash"}/> : <MainContent key={"content"}/>}
-            </AnimatePresence>
-        </div>
+        <MainDiv
+        exit={{translateY: -300, opacity: 0 }}
+        transition={{duration: 1}}>
+            <MainImage 
+            initial={{ translateX: 600, opacity: 0}}
+            animate={{ translateX: 0, opacity: 1}}
+            transition={{duration: 1.5}}
+            src="images/image_1.png"/>
+            <MainText 
+            initial={{ translateY: 200, opacity: 0}}
+            animate={{ translateY: 0, opacity: 1}}
+            transition={{delay: 0.5, duration: 1.5}}>
+                Ubica, conéctate, navega:
+                Encuentra tu zona WiFi más cercana
+            </MainText>
+        </MainDiv>
     )
 }

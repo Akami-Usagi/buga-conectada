@@ -23,8 +23,8 @@ function App() {
       {headerVisible ? <Header/> : null}
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
-          <Route path="/splash" element={<SplashScreen/>}/>
-          <Route path="/" element={<Main setHeaderVisible={setHeaderVisible}/>} />
+          <Route path="/" element={<SplashScreen/>}/>
+          <Route path="/inicio" element={<Main setHeaderVisible={setHeaderVisible}/>} />
           <Route path="/zonas_wifi" element={<MapaZonasWifi setHeaderVisible={setHeaderVisible}/> }/>
           <Route path="/parques_conectados" element={<ParquesConectados setHeaderVisible={setHeaderVisible}/>}/>
         </Routes>
