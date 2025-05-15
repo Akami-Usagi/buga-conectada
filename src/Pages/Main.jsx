@@ -16,7 +16,7 @@ const Logo = styled(motion.img)`
         
     }
 `
-const MainDiv = styled.div`
+const MainDiv = styled(motion.div)`
     max-width: 100vw;
     min-height: calc(100vh - 60px);
     position: relative;
@@ -64,6 +64,7 @@ export default function Main ({setHeaderVisible}){
     const SplashScreen = () => {
         return(
             <Logo
+            key={"logo"}
             initial={{ scale: 0, opacity: 0}}
             animate={{ scale: 1, opacity: 1}}
             transition={{duration: 1}}
@@ -75,7 +76,11 @@ export default function Main ({setHeaderVisible}){
 
     const MainContent = () => {
         return(
-            <MainDiv>
+            <MainDiv
+                key={"content"}
+                initial={{translateY: 160, opacity: 0}}
+                animate={{translateY: 0, opacity: 1, transition: {duration: 1.5} }}
+                exit={{scale: 0, opacity: 0, transition: {duration: 0.7}}}>
                 <MainImage 
                 initial={{ translateX: 600, opacity: 0}}
                 animate={{ translateX: 0, opacity: 1}}

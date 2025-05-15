@@ -39,7 +39,7 @@ export default function Header(){
 
                 <Link to={"/"}><HeaderIcon src="images/buga_conectada_logo.svg" alt="Buga Conectada"/></Link>
                 <ButtonsDiv>
-                    <LinkButton >Parques Conectados</LinkButton>
+                    <LinkButton to={"/parques_conectados"}>Parques Conectados</LinkButton>
                     <LinkButton >Centros de Transformacion</LinkButton>
                     <LinkButton to={"/zonas_wifi"}>Mapa de Conectividad</LinkButton>
                 </ButtonsDiv>

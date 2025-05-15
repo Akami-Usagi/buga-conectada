@@ -105,8 +105,8 @@ export default function MapaZonasWifi({setHeaderVisible}) {
   return (
     <WifiMainDiv
             initial={{translateY: 160, opacity: 0}}
-            animate={{translateY: 0, opacity: 1 }}
-            transition={{duration: 1.5}}>
+            animate={{translateY: 0, opacity: 1, transition: {duration: 1.5} }}
+            exit={{scale: 0, opacity: 0, transition: {duration: 0.7}}}>
         <StyledMapContainer
         center={[3.9019, -76.2975]}
         zoom={14}
