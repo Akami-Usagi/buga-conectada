@@ -56,7 +56,7 @@ const centrosTransformacion = [
 
 const WifiMainDiv = styled(motion.div)`
   width: 100%;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100dvh - 60px);
   display: grid;
   place-items: center;
   position: relative;
@@ -66,7 +66,9 @@ const StyledMapContainer = styled(MapContainer)`
   border-radius: 20px;
   box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
   width: 80%;
-  height: 80vh;
+  height: 75dvh;
+  position: relative;
+  bottom: 20px;
   @media(max-width: 830px){
     width: 95%;
   }

@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import HeaderMenu from "./HeaderMenu";
 
 const HeaderDiv = styled(motion.div)`
     width: 100%;
@@ -11,9 +13,16 @@ const HeaderDiv = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: space-around;
+    @media(max-width: 500px){
+        justify-content: space-between;
+    }
 `
 const HeaderIcon = styled.img`
     height: 50px;
+    @media(max-width: 500px){
+        position: relative;
+        left: 30px;
+    }
 `
 const ButtonsDiv = styled.div`
     display: flex;
@@ -31,8 +40,21 @@ const LinkButton = styled(Link)`
     color: #3A3A73;
     font-weight: bold;
 `
+const MenuImage = styled.img`
+        width: 40px;
+        display: none;
+        transition: ease-in-out 200ms;
+        @media (max-width: 700px){
+            display: block;
+            position: relative;
+            right: 30px;
+        }
+    `
 
 export default function Header(){
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return(
         <HeaderDiv
             initial={{translateY: -60}}
@@ -45,6 +67,8 @@ export default function Header(){
                     <LinkButton >Centros de Transformacion</LinkButton>
                     <LinkButton to={"/zonas_wifi"}>Mapa de Conectividad</LinkButton>
                 </ButtonsDiv>
+                {menuOpen ? <MenuImage src="/icons/menu_open.svg" onClick={()=> setMenuOpen(!menuOpen)}/> : <MenuImage src="/icons/menu_closed.svg" onClick={()=> setMenuOpen(!menuOpen)}/>}
+                {menuOpen && <HeaderMenu setMenuOpen={setMenuOpen}/>}
 
         </HeaderDiv>
     )
