@@ -24,7 +24,7 @@ const ParkDiv2 = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 100dvh;
+    height: calc(100dvh - 60px);
     align-items: center;
     background: url("/images/parques/altobonito.png");
     background-repeat: no-repeat;

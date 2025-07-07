@@ -6,6 +6,9 @@ import { useState } from "react";
 import HeaderMenu from "./HeaderMenu";
 
 const HeaderDiv = styled(motion.div)`
+    position: sticky;
+    top: 0;
+    z-index: 999;
     width: 100%;
     min-height: 60px;
     max-height: fit-content;
@@ -13,13 +16,13 @@ const HeaderDiv = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    @media(max-width: 500px){
+    @media(max-width: 900px){
         justify-content: space-between;
     }
 `
 const HeaderIcon = styled.img`
     height: 50px;
-    @media(max-width: 500px){
+    @media(max-width: 900px){
         position: relative;
         left: 30px;
     }
