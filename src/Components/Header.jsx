@@ -28,7 +28,7 @@ const ButtonsDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    @media(max-width: 500px){
+    @media(max-width: 900px){
         display: none;
     }
 `
@@ -44,7 +44,7 @@ const MenuImage = styled.img`
         width: 40px;
         display: none;
         transition: ease-in-out 200ms;
-        @media (max-width: 700px){
+        @media (max-width: 900px){
             display: block;
             position: relative;
             right: 30px;

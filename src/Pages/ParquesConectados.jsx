@@ -8,21 +8,35 @@ const MotionDiv = styled(motion.div)`
     
     
 `
-const MainImage = styled(motion.img)`
-    height: calc(100dvh - 60px);
-    
-`
+
 const ParkDiv = styled.div`
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: center;
+    width: 100%;
+    height: calc(100dvh - 60px);
     align-items: center;
+    background: url("/images/parques/altobonito.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+`
+const ParkDiv2 = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100dvh;
+    align-items: center;
+    background: url("/images/parques/altobonito.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 `
 const GlassDiv = styled.div`
     width: 570px;
     height: 320px;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(5px);
     border-radius: 20px;
-    box-shadow: 0 0 3px rgba(255,255,255,0.2);
+    box-shadow: 0 0 5px rgba(255,255,255,0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,15 +44,24 @@ const GlassDiv = styled.div`
     color: white;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     position: relative;
-    right: 200px;
+    left: 10%;
+    @media (max-width: 850px){
+        width: 80%;
+        left: initial;
+        top: 20%;
+    }
+    
 `
 const MapButton = styled.button`
     background-color: white;
-    padding: 10px 20px;
+    border: none;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+    padding: 12px 50px;
     border-radius: 20px;
     text-decoration: none;
     color: #3A3A73;
     font-weight: bold;
+    
 `
 
 export default function ParquesConectados ({setHeaderVisible}){
@@ -62,9 +85,9 @@ export default function ParquesConectados ({setHeaderVisible}){
                     </h3>
                     <Link to={"/zonas_wifi"}><MapButton>Ir al Mapa</MapButton></Link>
                 </GlassDiv>
-                <MainImage src="/images/parques/altobonito.png"/>
             </ParkDiv>
-            <ParkDiv>
+                 
+            <ParkDiv2>
                 <GlassDiv>
                     <h1>
                         Parque Palo Blanco
@@ -74,20 +97,7 @@ export default function ParquesConectados ({setHeaderVisible}){
                     </h3>
                     <Link to={"/zonas_wifi"}><MapButton>Ir al Mapa</MapButton></Link>
                 </GlassDiv>
-                <MainImage src="/images/parques/altobonito.png"/>
-            </ParkDiv>  
-            <ParkDiv>
-                <GlassDiv>
-                    <h1>
-                        Parque Palo Blanco
-                    </h1>
-                    <h3>
-                        Visita este parque en la parte alta de nuestra ciudad
-                    </h3>
-                    <Link to={"/zonas_wifi"}><MapButton>Ir al Mapa</MapButton></Link>
-                </GlassDiv>
-                <MainImage src="/images/parques/altobonito.png"/>
-            </ParkDiv>         
+            </ParkDiv2>
             
         </MotionDiv>
     )
