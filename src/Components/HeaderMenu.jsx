@@ -56,6 +56,7 @@ export default function HeaderMenu({setMenuOpen}){
             <MenuList>
                     <li><Link to={"/inicio"}><MenuButton onClick={()=> setMenuOpen(false)}>Inicio</MenuButton></Link></li>
                     <li><Link to={"/zonas_wifi"}><MenuButton onClick={()=> setMenuOpen(false)}>Mapa de Conectividad</MenuButton></Link></li>
+                    <li><Link to={"/centros_transformacion_digital"}><MenuButton onClick={()=> setMenuOpen(false)}>Centros de Transformacion</MenuButton></Link></li>  
                     <li><Link to={"/parques_conectados"}><MenuButton onClick={()=> setMenuOpen(false)}>Parques Conectados</MenuButton></Link></li>   
                     
             </MenuList>
