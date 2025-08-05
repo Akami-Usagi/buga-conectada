@@ -67,7 +67,7 @@ export default function Header(){
                 <Link to={"/inicio"}><HeaderIcon src="images/buga_conectada_logo.svg" alt="Buga Conectada"/></Link>
                 <ButtonsDiv>
                     <LinkButton to={"/parques_conectados"}>Parques Conectados</LinkButton>
-                    <LinkButton >Centros de Transformacion</LinkButton>
+                    <LinkButton to={"/centros_transformacion_digital"}>Centros de Transformacion</LinkButton>
                     <LinkButton to={"/zonas_wifi"}>Mapa de Conectividad</LinkButton>
                 </ButtonsDiv>
                 {menuOpen ? <MenuImage src="/icons/menu_open.svg" onClick={()=> setMenuOpen(!menuOpen)}/> : <MenuImage src="/icons/menu_closed.svg" onClick={()=> setMenuOpen(!menuOpen)}/>}
