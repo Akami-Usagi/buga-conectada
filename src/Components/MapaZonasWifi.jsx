@@ -46,7 +46,7 @@ const zonasWifi = [
   { nombre: "Parque Santa Bárbara", coords: [3.903855251060354, -76.29525600278023], enabled: true, image: "images/santa_barbara.webp"  },
   { nombre: "Parque de la Revolución", coords: [3.900058404805033, -76.29029339566847], enabled: true, image: "images/revolucion.webp"  },
   { nombre: "Parque Alto Bonito", coords: [3.8995856169563123, -76.28627800136128], enabled: true, image: "images/alto_bonito.webp"  },
-  { nombre: "Parque Maria Luisa", coords: [3.91258405635995, -76.29595931546105], enabled: false, image: "images/maria_luisa.webp"  }
+  { nombre: "Parque Maria Luisa", coords: [3.91258405635995, -76.29595931546105], enabled: true, image: "images/maria_luisa.webp"  }
 ];
 const centrosTransformacion = [
   {nombre: "CTD Colegio ITA", coords: [3.9117234951243054, -76.2918113379526], enabled: true, image: "images/ita.webp"},
