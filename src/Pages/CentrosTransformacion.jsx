@@ -42,6 +42,17 @@ const ParkDiv3 = styled.div`
     background-size: cover;
     background-position: center;
 `
+const ParkDiv4 = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: calc(100dvh - 60px);
+    align-items: center;
+    background: url("/images/centros/habana.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+`
 
 const GlassDiv = styled.div`
     width: 570px;
@@ -87,6 +98,20 @@ export default function CentrosTransformacion ({setHeaderVisible}){
                 initial={{translateY: 160, opacity: 0}}
                 animate={{translateY: 0, opacity: 1, transition: {delay: 1, duration: 1.5} }}
                 exit={{translateY: 300, opacity: 0, transition: {duration: 0.7}}}>
+            
+            <ParkDiv4>
+                <GlassDiv>
+                    <h1>
+                        CTD Rural La Habana
+                    </h1>
+                    <h3>
+                        Primer centro de transformación digital en zona rural del valle del cauca, este centro busca llevar conectividad a la parte alta de Guadalajara de Buga
+                    </h3>
+                    <Link to={"/zonas_wifi"}><MapButton>Ir al Mapa</MapButton></Link>
+                </GlassDiv>
+            </ParkDiv4>
+
+
             <ParkDiv>
                 <GlassDiv>
                     <h1>
