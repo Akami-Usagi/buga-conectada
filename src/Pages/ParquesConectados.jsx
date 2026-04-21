@@ -144,10 +144,10 @@ export default function ParquesConectados ({setHeaderVisible}){
             <ParkDiv>
                 <GlassDiv>
                     <h1>
-                        Parque Palo Blanco
+                        Parque Alto Bonito
                     </h1>
                     <h3>
-                        Ubicado en el norte de Buga, rodeado de zonas residenciales y vegetación. Espacio tranquilo con buena vista hacia los barrios altos.
+                        Ubicado en el este de Buga, rodeado de zonas residenciales y vegetación. Espacio tranquilo con buena vista hacia los barrios altos.
                     </h3>
                     <Link to={"/zonas_wifi"}><MapButton>Ir al Mapa</MapButton></Link>
                 </GlassDiv>
