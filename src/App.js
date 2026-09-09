@@ -5,6 +5,7 @@ import Main from "./Pages/Main";
 import MapaZonasWifi from "./Components/MapaZonasWifi";
 import ParquesConectados from "./Pages/ParquesConectados";
 import CentrosTransformacion from "./Pages/CentrosTransformacion";
+import UbicacionesAlcaldia from "./Pages/UbicacionesAlcaldia"
 import Shader from "./Components/Shader";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./Components/Header";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/zonas_wifi" element={<MapaZonasWifi setHeaderVisible={setHeaderVisible}/> }/>
           <Route path="/parques_conectados" element={<ParquesConectados setHeaderVisible={setHeaderVisible}/>}/>
           <Route path="/centros_transformacion_digital" element={<CentrosTransformacion setHeaderVisible={setHeaderVisible}/>}/>
+          <Route path="/ubicaciones-alcaldia" element={<UbicacionesAlcaldia setHeaderVisible={setHeaderVisible}/>}/>
         </Routes>
       </AnimatePresence>
     </>

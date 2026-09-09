@@ -54,6 +54,7 @@ export default function Main ({setHeaderVisible}){
             animate={{ translateX: 0, opacity: 1}}
             transition={{duration: 1.5}}
             src="images/image_1.png"/>
+            
             <MainText 
             initial={{ translateY: 200, opacity: 0}}
             animate={{ translateY: 0, opacity: 1}}
