@@ -15,20 +15,27 @@ const userIcon = new L.Icon({
 
 
 const iconCentro = L.icon({
-  iconUrl: "/icons/centro.svg",
+  iconUrl: "/icons/oficina.svg",
   shadowUrl: "icons/shadowcentro.png",
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
+  iconSize: [40, 40],
+  iconAnchor: [15, 30],
+  popupAnchor: [5, -32],
 });
 
 
 // Datos de las oficinas
 const oficinasAlcaldia = [
-  {nombre: "Secretaría de Hacienda - Camara de Comercio de Buga", coords: [3.9117234951243054, -76.2918113379526], direccion: "calle 123", image: "images/oficinas/camara-comercio.webp"},
-  {nombre: "CTD Colegio Academido", coords: [3.8918508993832703, -76.29820865911823], direccion: "calle 123", image: "images/academico.webp"},
-  {nombre: "CTD Biblioteca Carlos H. Morales", coords: [3.9083289860340766, -76.29871818416554], direccion: "calle 123", image: "images/biblioteca.webp"},
-  {nombre: "CTD Rural La Habana", coords: [3.8800234364295836, -76.19304531799423], direccion: "calle 123", image: "images/habana.webp"},
+  {nombre: `Secretaría de Hacienda: atencion al contribuyente: impuesto predial, industria y comercio, rentas menores - Camara de Comercio de Buga`, coords: [3.8990204785345353, -76.30186285188644], direccion: "Carrera 14 # 5-53", image: "images/oficinas/camara-comercio.webp"},
+  {nombre: `Ventanilla Única de Atencion al Ciudadano: PQRD - Camara de Comercio de Buga`, coords: [3.8986449645800216, -76.30200638839638], direccion: "Carrera 14 # 5-53", image: "images/oficinas/camara-comercio.webp"},
+  {nombre: "Secretaría de Salud: SAC, Aseguramiento y Poblaciones Vulnerables - Hospital Divino Niño", coords: [3.91512392442493, -76.29612064685685], direccion: "Carrera 15 # 26-50", image: "images/oficinas/divino_nino.webp"},
+  {nombre: "Secretaría de las Tecnologias de la Informacion y Telecomunicaciones: TIC - Oficina ERT: Empresa de Recursos Tecnológicos", coords: [3.897437892930023, -76.30035861591568], direccion: "Carrera 12 # 4-40", image: "images/oficinas/ert.webp"},
+  {nombre: "Secretaría de Desarrollo Institucional - Secretaría de Bienestar Social y Participacion", coords: [3.8951666145215693, -76.28925627543416], direccion: "Carrera 4CE # 6A-09", image: "images/oficinas/altos.webp"},
+  {nombre: "Secretaría de Gobierno - IMDER Buga", coords: [3.89111968669629, -76.30152774076709], direccion: "Carrera 12 # 4Sur-95", image: "images/oficinas/imder.webp"},
+  {nombre: "Secretaría de Agricultura - IMDER Buga", coords: [3.890630600537979, -76.30124609977803], direccion: "Carrera 12 # 4Sur-95", image: "images/oficinas/imder.webp"},
+  {nombre: "Oficina de Control Interno Disciplinario - Secretaría de la Mujer", coords: [3.8966328296168506, -76.29884989203788], direccion: "Calle 4 con Carrera 10", image: "images/oficinas/mujer.webp"},
+  {nombre: "Oficina de Cooperacion Internacional - Teatro Municipal", coords: [3.897979983090574, -76.29849946483289], direccion: "Calle 6 con Carrera 10", image: "images/oficinas/teatro.webp"},
+  {nombre: "Secretaría de Planeación - Colegio Academido", coords: [3.8918508993832703, -76.29820865911823], direccion: "Calle 0Sur con Carrera 9", image: "images/oficinas/academico.webp"},
+  {nombre: "Secretaríad e Obras Públicas - Biblioteca Carlos H. Morales", coords: [3.9083289860340766, -76.29871818416554], direccion: "Calle 16 # 14-50", image: "images/oficinas/biblioteca.webp"},
 ];
 
 const WifiMainDiv = styled(motion.div)`
@@ -66,7 +73,7 @@ function UserLocationMarker() {
       (pos) => {
         const coords = [pos.coords.latitude, pos.coords.longitude];
         setPosition(coords);
-        map.setView(coords, 14);
+        map.setView([3.903242949949297, -76.29772025374014], 14.5);
       },
       (err) => {
         console.error("Ubicación no disponible:", err);

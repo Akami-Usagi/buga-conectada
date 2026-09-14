@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // Styled-components para el contenedor de la tarjeta
 const CardContainer = styled.div`
     width: 270px;
-    height: 200px;
+    height: 270px;
     background-color: #f8f8f8;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -15,8 +15,9 @@ const CardContainer = styled.div`
 `;
 const CardTitle = styled.h3`
     font-weight: bold;
-    margin-bottom: 8px;
-    text-align: center;
+    padding-top: 8px;
+    width: 220px;
+    
 `;
 const CardContent = styled.h2`
     color: #fff;
